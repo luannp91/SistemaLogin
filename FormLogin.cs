@@ -19,7 +19,21 @@ namespace SistemaLogin
 
         private void btnPass_Click(object sender, EventArgs e)
         {
+            string name = txtUser.Text;
+            string password = txtPass.Text;
 
+            if (UserRegistration.Login(name, password))
+            {
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Acesso Negado!!!");
+                txtUser.Text = "";
+                txtPass.Text = "";
+                txtUser.Focus();
+                Close();
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
