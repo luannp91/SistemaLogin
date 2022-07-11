@@ -12,6 +12,8 @@ namespace SistemaLogin
 {
     public partial class FormLogin : Form
     {
+        public static bool Cancel = false;
+
         public FormLogin()
         {
             InitializeComponent();
@@ -38,7 +40,8 @@ namespace SistemaLogin
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            Cancel = true;
+            Close();
         }
     }
 }

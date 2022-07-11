@@ -20,7 +20,21 @@ namespace SistemaLogin
         private void Form1_Load(object sender, EventArgs e)
         {
             FormLogin f = new FormLogin();
-            f.ShowDialog();
+
+            while (UserRegistration.LoggedUser == null)
+            {
+                Visible = false;
+                f.ShowDialog();
+
+                if (FormLogin.Cancel)
+                {
+                    Application.Exit();
+                    return;
+                }
+            }
+
+            label_BoasVindas.Text = "Bem Vindo(a) \n" + UserRegistration.LoggedUser.Name;
+            Visible = true;
         }
     }
 }
